@@ -9,14 +9,16 @@ module.exports = {
 
 function index(req, res, next) {
     ///
-    User.find({}).exec(function(err, users) {
-    console.log(req.query)
+    User.find({}).exec(function(err, user) {
+    console.log(user)
     if(err) return(err);
-    res.render('users/index', {
-        users,
-        user: req.user,
-        name: req.query.name,
-    }) 
+    res.render('users/account', {
+        user
+
+        
+        
+    })
+    
     })
 }
 

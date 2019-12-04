@@ -16,9 +16,12 @@ passport.use(new GoogleStrategy({
     if(err) return cb(err);
     if (user) {
       // returning user
+      console.log('user exist');
       return cb(null, user);
     } else {
       // new student via OAuth
+      console.log('new user created');
+      console.log(profile)
       let newUser = new User({
         name: profile.displayName,
         email: profile.emails[0].value,
