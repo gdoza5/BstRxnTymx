@@ -3,8 +3,10 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 let session = require('express-session');
+let methodOverride = require('method-override')
 let passport = require('passport');
 var logger = require('morgan');
+
 
 require('dotenv').config();
 require('./config/database');
@@ -13,8 +15,10 @@ require('./config/stravaPassport');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-let loginRouter = require('./routes/login')
-let stravaRouter = require('./routes/strava')
+let accountsRouter = require('./routes/accounts')
+
+
+
 
 var app = express();
 
@@ -26,6 +30,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(methodOverride('_method'));
 app.use(session({
   secret:'Joyce69!',
   resave: false,
@@ -38,8 +43,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/', usersRouter);
-app.use('/', loginRouter);
-app.use('/', stravaRouter)
+app.use('/', accountsRouter)
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

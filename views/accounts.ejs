@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+
+  <body>
+<p> <%= user.name %></p>
+<img src="<%= user.avatar %>" >
+<p><%= user.team %></p>
+<a href="tmforms">Create team</a>
+
+<div>
+    <table class="table table-hover">
+        <thead>
+            <th>Team Name</th>
+            <th>Sport</th>
+            <th>View Squad</th>
+            <th>Edit Teamd</th>
+
+            <th>Delete</th>
+        </thead>
+        <tbody>
+        <% user.teams.forEach(function(team){ %>
+        <tr class="sizeRow" value="<%= team._id %>">
+            <td><%= team.name %></td>
+            <td><%= team.sport %></td>
+            <td><a href="tmedit/<%= team._id %>" > Edit Team</a></td>
+            <td>  
+                <form id="viewSquad" action="/accounts" method="POST" >
+                <button name="showTeam" type="submit" class="btnTest">View Team</button>
+                </form>
+            </td>
+            <td>  
+                <form id="deleteTeam" action="/accounts/<%= team._id %>?_method=DELETE" method="POST" >
+                <button name="deleteTeam" type="submit" class="btnTest">Delete</button>
+                </form>
+            </td>
+
+        </tr>
+        <% }) %>
+        </tbody>
+    </table> 
+
+
+</div>
+      
+      
+     
+  
+    
+  
+  
+  </body>
+</html>

@@ -2,8 +2,9 @@ var express = require('express');
 var router = express.Router();
 let usersCtrl = require('../controllers/users')
 
-/* GET users listing. */
-router.get('/user', usersCtrl.index)
+/* GET users listing. goes to accounts.ejs*/
+router.get('/users', usersCtrl.index)
+router.delete('/:id', usersCtrl.delete)
 
 
 

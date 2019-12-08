@@ -3,6 +3,7 @@ let passport = require('passport');
 let GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 let User = require('../models/user');
+let Athlete = require('../models/athlete')
 
 // new code below
 passport.use(new GoogleStrategy({
@@ -19,17 +20,18 @@ passport.use(new GoogleStrategy({
       console.log('user exist');
       return cb(null, user);
     } else {
-      // new student via OAuth
+      // new user via OAuth
       console.log('new user created');
-      console.log(profile)
+      console.log(profile);
       let newUser = new User({
         name: profile.displayName,
         email: profile.emails[0].value,
-        googleId: profile.id
+        googleId: profile.id,
+        avatar: profile.photos[0].value
       });
       newUser.save(function(err){
         if(err) return cb(err);
-        return cb(null, newUser)
+        return cb(null, newUser);
       })
     }
   });

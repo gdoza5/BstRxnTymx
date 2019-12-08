@@ -20,7 +20,7 @@ passport.use(new StravaStrategy({
           return cb(null, user);
         } else {
           // new student via OAuth
-          console.log('new user created');
+          console.log('new bleh created');
           console.log(accessToken, refreshToken)
           console.log(profile);
           let newUser = new User({
