@@ -32,6 +32,7 @@ function updateT(req, res, next) {
 
 function deleteT(req, res, next) {
     console.log("llego delete")
+    console.log(req.params.id)
     User.findById(req.user, function(err, user) {
         user.teams.id(req.params.id).remove();
         user.save(function (err) {
@@ -45,7 +46,12 @@ function deleteT(req, res, next) {
 
 function index(req, res, next) {
     ///
-   User.findOne({}, function(err, user) {
+    
+    console.log(req)
+   User.findOne({googleId: req.user.googleId}, function(err, user) {
+    console.log('getting right user *%*%*%*%*%*******************')
+    console.log(user.googleId)
+    console.log(req.params._id,'555555555555555555555555555555555')
     res.render('./accounts', {user})
    })
 }

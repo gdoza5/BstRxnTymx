@@ -11,6 +11,7 @@ module.exports = {
 function index(req, res, next) {
     ///
    User.find({}, function(err, users) {
+    console.log('Aqui !!!!!!!!!!!!!!!!!!!!!!!')
     res.render('/users', {users})
    })
 }

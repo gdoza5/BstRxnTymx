@@ -1,14 +1,16 @@
 let User = require('../models/user')
 
 module.exports = {
-    
+    show,
 }
 
-function crtTeam(req, res, next){
-    console.log(req);
-    req.user.teams.push(req.body);
-    console.log("Dat Body", req.body)
-    req.user.save(function(err){
-        res.redirect('./accounts');
-    })
+function show(req, res) {
+    console.log(req.params.id)
+    User.findOne({'teams._id': req.params.id}), function(err, user) {
+        res.render('/accounts'), {
+            user,
+            
+        }
+    }
+    
 }

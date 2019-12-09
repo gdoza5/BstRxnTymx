@@ -18,10 +18,12 @@ passport.use(new GoogleStrategy({
     if (user) {
       // returning user
       console.log('user exist');
+      console.log(user.googleId)
+      console.log(user,'**********************************')
       return cb(null, user);
     } else {
       // new user via OAuth
-      console.log('new user created');
+      console.log('new user start');
       console.log(profile);
       let newUser = new User({
         name: profile.displayName,
@@ -29,6 +31,7 @@ passport.use(new GoogleStrategy({
         googleId: profile.id,
         avatar: profile.photos[0].value
       });
+      console.log(newUser, '************************************')
       newUser.save(function(err){
         if(err) return cb(err);
         return cb(null, newUser);

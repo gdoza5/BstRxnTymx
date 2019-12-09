@@ -28,7 +28,7 @@
             <td><%= team.sport %></td>
             <td><a href="tmedit/<%= team._id %>" > Edit Team</a></td>
             <td>  
-                <form id="viewSquad" action="/accounts" method="POST" >
+                <form id="viewSquad" action="/accounts" method="GET" >
                 <button name="showTeam" type="submit" class="btnTest">View Team</button>
                 </form>
             </td>
@@ -39,18 +39,22 @@
             </td>
 
         </tr>
-        <% }) %>
+        
+         <% }) %>
         </tbody>
     </table> 
-
-
 </div>
+<div>
+    <% user.teams.forEach(function(team) { %>
+      <ul>
+        <%= team.name %>
       
       
-     
-  
-    
-  
+        
+      </ul>
+      <% }) %>
+      
+  <div>
   
   </body>
 </html>
