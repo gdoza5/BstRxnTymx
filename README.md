@@ -10,10 +10,10 @@
 ##### AAU I want to delete teams that are no longer active
 
 ####Wireframes
-[image1](./public/images/1.png)
-[image2](./public/images/2.png)
-[image3](./public/images/3.png)
-[image4](./public/images/4.png)
+![image1](./public/images/1.png)
+![image2](./public/images/2.png)
+![image3](./public/images/3.png)
+![image4](./public/images/4.png)
 
 ##Technologies Used
 
