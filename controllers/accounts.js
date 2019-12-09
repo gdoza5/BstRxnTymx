@@ -47,8 +47,9 @@ function deleteT(req, res, next) {
 function index(req, res, next) {
     ///
     
-    console.log(req)
+   
    User.findOne({googleId: req.user.googleId}, function(err, user) {
+       if(req.user.googleId )
     console.log('getting right user *%*%*%*%*%*******************')
     console.log(user.googleId)
     console.log(req.params._id,'555555555555555555555555555555555')
@@ -61,6 +62,7 @@ function tmform(req, res, next) {
 }
 function tmedit(req, res, next) {
     User.findById(req.user, function(err, user) {
+        console.log(req.user)
        console.log("xxxxxxxxx")
        console.log(user.teams.id(req.params.id))
     res.render('./tmedit', {
@@ -72,6 +74,7 @@ function tmedit(req, res, next) {
 
 
 function crtTeam(req, res, next){
+    console.log(req.body, 'OOPOPOPPOPOPOOO')
     req.user.teams.push(req.body);
     req.user.save(function(err){
         res.redirect('/accounts');

@@ -19,12 +19,12 @@ passport.use(new GoogleStrategy({
       // returning user
       console.log('user exist');
       console.log(user.googleId)
-      console.log(user,'**********************************')
+      // console.log(user,'**********************************')
       return cb(null, user);
     } else {
       // new user via OAuth
       console.log('new user start');
-      console.log(profile);
+      
       let newUser = new User({
         name: profile.displayName,
         email: profile.emails[0].value,

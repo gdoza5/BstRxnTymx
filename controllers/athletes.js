@@ -1,22 +1,38 @@
-let user = require('../models/user')
+let User = require('../models/user')
 
-user.teams.forEach(function(team) { 
-    team.athletes.forEach(funtion(athlete) {
-        athlete.name
+module.exports = {
+    athlForms,
+    crtAthl
+}
+
+function crtAthl(req, res, next) {
+    
+        User.findById(req.user, function(err, user) {
+            console.log(req.user)
+           console.log("xxxxxxxxx");
+           console.log(user.teams.id(req.params.id),')(*()*&&)&786087-');
+           console.log(user.teams.id(req.params.id).athletes,'9879038574984357984laksjdf;lakdsj')
+            console.log(req.body, '_______-----------------');
+            
+            user.teams.id(req.params.id).athletes.push(req.body);
+            console.log(req.user,')()())(&(*&)(&)(&*)(*')
+            user.save(function(err){
+                res.redirect('/accounts')
+            })
+
+   
+        
     })
-}) 
+}
 
-<% }) %>
-      </tbody>
-        <tbody>
-        <% user.teams.forEach(function(team) { %>
-          <tr value="<%= team._id %>">
-          <% team.athletes.forEach(funtion(athlete) { %>
-          <ul>
-            <li><%= athlete.avatar %>,<%= athlete.name %>,<%= athlete.age%>,</li>
-          </ul>
+function athlForms(req, res, next) {
+    User.findById(req.user, function(err, user) {
+        console.log(req.user)
+       console.log("xxxxxxxxx")
+       console.log(user.teams.id(req.params.id))
+    res.render('./athletes/athlforms', {
+        team: user.teams.id(req.params.id)
+    })
+    })
+}
 
-          <% }) %>
-        </tr>
-
-User.findOne({googleId:}, function

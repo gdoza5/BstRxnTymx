@@ -46,8 +46,13 @@
 </div>
 <div>
     <% user.teams.forEach(function(team) { %>
-      <ul>
-        <%= team.name %>
+      <ul value="<%= team._id %>">
+        <%= team.name %><a href="./athletes/athlforms/<%= team._id %>">Add athletes</a>
+    <%  team.athletes.forEach(function(athlete) { %>
+        <li>
+          <img src="<%= athlete.avatar %>"> <%= athlete.name %>, <%= athlete.age %>, <%= athlete.position %>
+        </li>
+     <% }) %>
       
       
         

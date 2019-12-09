@@ -15,7 +15,8 @@ require('./config/stravaPassport');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-let accountsRouter = require('./routes/accounts')
+let accountsRouter = require('./routes/accounts');
+let athletesRouter = require('./routes/athletes');
 
 
 
@@ -43,7 +44,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/', usersRouter);
-app.use('/', accountsRouter)
+app.use('/', accountsRouter);
+app.use('/athletes', athletesRouter)
 
 
 // catch 404 and forward to error handler
