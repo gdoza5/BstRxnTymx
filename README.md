@@ -30,4 +30,6 @@
 *Edit and Delete athletes
 *Be able to see individual teams on single page
 *Create team specific post boards to comunicate
+*Add team pictures
+
  
