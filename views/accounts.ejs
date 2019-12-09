@@ -1,65 +1,65 @@
-<!DOCTYPE html>
-<html>
-  <head>
+<%- include('./partials/header') %>
+<div class="row">
+  <div class="four columns">  
+    <p> <%= user.name %></p>
+      <img src="<%= user.avatar %>" height="256 px" width="256px">
+    <p><%= user.team %></p>
+    <a href="tmforms">Create team</a>
+  </div>
 
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
+  <div class="five columns">
+      <table class="table table-hover">
+          <thead>
+              <th>Team Name</th>
+              <th>Sport</th>
+              <th>View Squad</th>
+              <th>Edit Teamd</th>
 
-  <body>
-<p> <%= user.name %></p>
-<img src="<%= user.avatar %>" >
-<p><%= user.team %></p>
-<a href="tmforms">Create team</a>
-
-<div>
-    <table class="table table-hover">
-        <thead>
-            <th>Team Name</th>
-            <th>Sport</th>
-            <th>View Squad</th>
-            <th>Edit Teamd</th>
-
-            <th>Delete</th>
-        </thead>
-        <tbody>
-        <% user.teams.forEach(function(team){ %>
-        <tr class="sizeRow" value="<%= team._id %>">
-            <td><%= team.name %></td>
-            <td><%= team.sport %></td>
-            <td><a href="tmedit/<%= team._id %>" > Edit Team</a></td>
-            <td>  
-                <form id="viewSquad" action="/accounts" method="GET" >
-                <button name="showTeam" type="submit" class="btnTest">View Team</button>
-                </form>
-            </td>
-            <td>  
-                <form id="deleteTeam" action="/accounts/<%= team._id %>?_method=DELETE" method="POST" >
-                <button name="deleteTeam" type="submit" class="btnTest">Delete</button>
-                </form>
-            </td>
-
-        </tr>
+              <th>Delete</th>
+          </thead>
         
-         <% }) %>
-        </tbody>
-    </table> 
-</div>
-<div>
-    <% user.teams.forEach(function(team) { %>
-      <ul value="<%= team._id %>">
-        <%= team.name %><a href="./athletes/athlforms/<%= team._id %>">Add athletes</a>
-    <%  team.athletes.forEach(function(athlete) { %>
-        <li>
-          <img src="<%= athlete.avatar %>"> <%= athlete.name %>, <%= athlete.age %>, <%= athlete.position %>
-        </li>
-     <% }) %>
-      
-      
+          <tbody>
+          <% user.teams.forEach(function(team){ %>
+          <tr class="" value="<%= team._id %>">
+              <td><%= team.name %></td>
+              <td><%= team.sport %></td>
+              <td><a href="tmedit/<%= team._id %>" > Edit Team</a></td>
+              <td>  
+                  <form id="viewSquad" action="/accounts" method="GET" >
+                  <button name="showTeam" type="submit" class="btnTest">View Team</button>
+                  </form>
+              </td>
+              <td>  
+                  <form id="deleteTeam" action="/accounts/<%= team._id %>?_method=DELETE" method="POST" >
+                  <button name="deleteTeam" type="submit" class="btnTest">Delete</button>
+                  </form>
+              </td>
+
+          </tr>
         
-      </ul>
+          <% }) %>
+          </tbody>
+      </table> 
+  </div>
+  </div>
+  <div >
+      <% user.teams.forEach(function(team) { %>
+        
+        <ul value="<%= team._id %>">
+          <%= team.name %><a href="./athletes/athlforms/<%= team._id %>">Add athletes</a>
+      <%  team.athletes.forEach(function(athlete) { %>
+        <div class="twelve columns" style="margin-bottom: 2%;">
+          <li>
+            <img src="<%= athlete.avatar %>"> <%= athlete.name %>, <%= athlete.age %>, <%= athlete.position %>
+          </li>
+        </div>
       <% }) %>
       
-  <div>
+      
+        
+        </ul>
+        <% }) %>
+      
+      </div>
   
-  </body>
-</html>
+  <%- include('./partials/footer') %>
