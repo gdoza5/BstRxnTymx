@@ -3,9 +3,9 @@ var router = express.Router();
 let passport = require('passport')
 let accountsCtrl = require('../controllers/accounts')
 
-
+router.use (isLoggedIn)
 /* GET home page. */
-router.get('/accounts', isLoggedIn, accountsCtrl.index);
+router.get('/accounts',  accountsCtrl.index);
 router.get('/tmforms', accountsCtrl.tmform);
 router.get('/tmedit/:id', accountsCtrl.tmedit)
 router.post('/accounts', accountsCtrl.crtTeam)
