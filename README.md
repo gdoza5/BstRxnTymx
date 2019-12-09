@@ -1,5 +1,5 @@
 #Sunday PL
-#####Corraling all your degenarate friends for your adult sports leagues can be a pain. Let [Sunday PL] (https://bstrxntymx.herokuapp.com) help you
+#####Corraling all your degenarate friends for your adult sports leagues can be a pain. Let [Sunday PL](https://bstrxntymx.herokuapp.com) help you
 
 ###User Stories
 ##### AAU i want to abel to log into my account with my google accaount.
